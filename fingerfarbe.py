@@ -6,12 +6,13 @@ header = '''<html>
 <style>
 .fingerprint {
     display:inline-block;
-    height: 15%;
+    padding: 3% 0;
+    margin-bottom: 2%;
     width: 10%;
-    margin-bottom: 5px;
     font-family: monospace;
-    font-size: 2rem;
+    font-size: 175%;
     text-align: center;
+    text-shadow: 0 0 1px #CCCCCC;
 }
 </style>
 </head>
