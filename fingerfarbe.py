@@ -33,7 +33,7 @@ def colorize(fpr):
     for index, val in enumerate(fpr):
         color += val
         if ((index + 1) % 4 == 0) or ((index + 2) % 4 == 0):
-            color += '0'
+            color += 'F'
 
     fingerfarbe = []
     for chunk in findall('......', color):
