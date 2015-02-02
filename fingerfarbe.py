@@ -60,10 +60,10 @@ def index():
         try:
             fpr = request.GET.get('fingerprint').replace(' ', '')
             int(fpr, 16)
-            if len(fpr) % 4 == 0:
+            if len(fpr) == 40:
                 pass
             else:
-                return template(header + form + 'Fingerprint-length must be a multiple of 4' + footer)
+                return template(header + form + 'Fingerprint-length must be exactly 40 characters' + footer)
         except:
             return template(header + form + 'Fingerprint must be a hex string!' + footer)
         tup = colorize(fpr)
