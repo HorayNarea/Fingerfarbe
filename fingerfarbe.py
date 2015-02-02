@@ -1,7 +1,8 @@
 from re import findall
 from bottle import route, run, template, request
 
-header = '''<html>
+header = '''
+<html>
 <head>
 <style>
 .fingerprint {
@@ -16,17 +17,24 @@ header = '''<html>
 }
 </style>
 </head>
-<body>'''
+<body>
+'''
 
-footer = '''</body>
-</html>'''
+footer = '''
+<br /><br />
+<small><a href="https://github.com/HorayNarea/Fingerfarbe">https://github.com/HorayNarea/Fingerfarbe</a></small>
+</body>
+</html>
+'''
 
-form = '''<form>
+form = '''
+<form>
 Fingerprint:<br />
 <input type="text" name="fingerprint" autofocus />
 <br />
 <input type="submit" value="Generate" />
-</form>'''
+</form>
+'''
 
 def colorize(fpr):
     color = ''
@@ -52,6 +60,10 @@ def index():
         try:
             fpr = request.GET.get('fingerprint').replace(' ', '')
             int(fpr, 16)
+            if len(fpr) % 4 == 0:
+                pass
+            else:
+                return template(header + form + 'Fingerprint-length must be a multiple of 4' + footer)
         except:
             return template(header + form + 'Fingerprint must be a hex string!' + footer)
         tup = colorize(fpr)
