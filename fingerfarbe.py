@@ -31,7 +31,6 @@ form = '''
 <form>
 Fingerprint:<br />
 <input type="text" name="fingerprint" autofocus />
-<br />
 <input type="submit" value="Generate" />
 </form>
 '''
